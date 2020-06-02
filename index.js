@@ -11,13 +11,19 @@ client.on("message", (msg) => {
   if (!msg.content.startsWith(config.prefix)) return; //거르기
 
   const cmd = msg.content.replace(config.prefix, "");
-  console.log(cmd);
 
-  if (cmd === "ping") {
+  if (cmd === "ping") { // ping
     msg.channel.send(
       new MessageEmbed()
         .setTitle("🏓Ping")
         .addField("Discord API Ping", `${client.ws.ping}`, true)
+    );
+  }
+  if (cmd === "help") { // help
+    msg.channel.send(
+      new MessageEmbed()
+        .setTitle("📜Help")
+        .addField(`${config.prefix}ping`, `send ping`, true)
     );
   }
 });
