@@ -24,6 +24,7 @@ fs.readdir("./commands/", (err, files) => {
         let props = require(`./commands/${f}`)
         console.log(`${i + 1}: ${f} 로딩됨!`)
         client.commands.set(props.help.name, props)
+        client.commands.set(props.help.name2, props)
     })
 })
 

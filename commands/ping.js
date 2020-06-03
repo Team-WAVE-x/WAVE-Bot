@@ -9,5 +9,6 @@ exports.run = (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "ping"
+    name: "ping",
+    name2: "핑"
 }
