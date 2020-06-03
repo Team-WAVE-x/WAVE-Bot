@@ -19,13 +19,12 @@ fs.readdir("./commands/", (err, files) => {
         return
     }
 
-    console.log(`${jsfiles.length}개의 커맨드 로딩중...`)
-
+    console.log(`${jsfiles.length}개의 커맨드 로딩중...`)    
     jsfiles.forEach((f, i) => {
         let props = require(`./commands/${f}`)
         console.log(`${i + 1}: ${f} 로딩됨!`)
         props.help.alias.forEach(element => client.commands.set(element, props))
-        client.commands.set(props.help.name, props)
+        client.commands.set(props.help.name, props) // 싫은데 ㅎㅎ
     })
 })
 

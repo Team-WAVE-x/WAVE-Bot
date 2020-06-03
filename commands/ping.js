@@ -11,5 +11,5 @@ exports.run = (client, message, args) => {
 module.exports.help = {
     name: "ping",
     alias: ["핑", "vld"],
-    authority: "everyone"
+    authority: "Basic"
 }
