@@ -3,12 +3,12 @@ const Discord = module.require('discord.js')
 exports.run = (client, message, args) => {
     message.channel.send(
         new Discord.MessageEmbed()
-          .setTitle("🏓Ping")
-          .addField("Discord API Ping", `${client.ws.ping}`, true)
+            .setTitle("🏓Ping")
+            .addField("Discord API Ping", `${client.ws.ping}`, true)
     );
 }
 
 module.exports.help = {
     name: "ping",
-    name2: "핑"
+    alias: ["핑", "vld"]
 }

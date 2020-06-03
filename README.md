@@ -1,2 +1,2 @@
 # discord-bot
-discord bot
+이 봇은 팀 웨이브에서 개발중인 디스코드 전용 봇입니다.
