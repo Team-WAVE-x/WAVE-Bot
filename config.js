@@ -4,5 +4,6 @@ module.exports = {
   developers: [
     "495776817937121301", // EXON
     "472652198388695040", // HOOSS
+    "515833390524530688" // Kate Line
   ],
 };
