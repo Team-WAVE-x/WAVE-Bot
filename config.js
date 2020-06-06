@@ -1,5 +1,5 @@
 module.exports = {
-  token: "NzE0MzcxNzIzMjg1MjMzNjc1.XsuARg.gQJP892nrRUfP87HD-4og9Bfvro",
+  token: "NzE0MzcxNzIzMjg1MjMzNjc1.Xtrtdg.RfPwb07rLKLxhq9KW8Nk8orPba8",
   prefix: "%",
   developers: [ //Team WAVE
     "495776817937121301", // EXON
