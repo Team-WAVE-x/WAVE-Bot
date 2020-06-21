@@ -17,10 +17,10 @@ client.on("guildMemberAdd", (gulidMember) => {
   if (config.ban.includes(gulidMember.id)) {
     //역할 부여
     gulidMember.roles.add("710725714986663966");
-    console.log("반동분자 역활지급 완료");
+    console.log(`${gulidMember.user.tag} 반동분자 역활지급 완료`);
   } else {
     gulidMember.roles.add("708265543425065000");
-    console.log(`${gulidMember.displayName}새로운 멤버들어옴`);
+    console.log(`${gulidMember.user.tag} 새로운 멤버들어옴`);
   }
 });
 
