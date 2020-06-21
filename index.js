@@ -10,17 +10,19 @@ client.on("ready", () => {
 
 client.commands = new Discord.Collection();
 
-client.on("guildMemberAdd", (gulidMember) => {
-  //gulidMember.guild.channels.cache
-  //.get(greetingChannelID)
-  //.send(`${gulidMember.guild.name} 에 <@${gulidMember.id}> 님이 입장하셨습니다!`);
-  if (config.ban.includes(gulidMember.id)) {
+client.on("guildMemberAdd", (guildMember) => {
+  guildMember.guild.channels.cache
+  .get("724219555743793157")
+  .send(new Discord.MessageEmbed()
+    .setTitle("🎉새로운 멤버!")
+    .addField(`${guildMember.guild.name}에 오신걸 환영합니다!`, `<@${guildMember.id}>`, true));
+  if (config.ban.includes(guildMember.id)) {
     //역할 부여
-    gulidMember.roles.add("710725714986663966");
-    console.log(`${gulidMember.user.tag} 반동분자 역활지급 완료`);
+    guildMember.roles.add("710725714986663966");
+    console.log(`${guildMember.user.tag} 반동분자 역활지급 완료`);
   } else {
-    gulidMember.roles.add("708265543425065000");
-    console.log(`${gulidMember.user.tag} 새로운 멤버들어옴`);
+    guildMember.roles.add("708265543425065000");
+    console.log(`${guildMember.user.tag} 새로운 멤버들어옴`);
   }
 });
 
