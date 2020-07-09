@@ -9,8 +9,8 @@ const client = new Client()
 
 // Events
 client.regist('ready', onReady)
-client.regist('guildMemberAdd', onGuildMemberAdd)
 client.regist('message', onMessage)
+client.regist('guildMemberAdd', onGuildMemberAdd)
 
 // Start
 client.start()

@@ -33,6 +33,7 @@ class eClient extends Client {
 
           command = require(command)
           this.commands.push(command)
+          console.log('I found \'' + command.help.name + '\'')
         })
     } else throw new Error('./commands/ folder not exists')
   }
