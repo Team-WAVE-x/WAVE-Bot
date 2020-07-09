@@ -117,3 +117,6 @@ dist
 
 # npmed up
 package-lock.json
+
+# settings file
+settings.json
