@@ -120,3 +120,6 @@ package-lock.json
 
 # settings file
 settings.json
+
+# blacklists
+data/blacklist.json
