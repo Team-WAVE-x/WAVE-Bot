@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config");
 const fs = require("fs");
+const fuck = config.fuck.join(" ")
 
 client.on("ready", () => {
   console.log(`Logged in As ${client.user.tag}`);
@@ -24,6 +25,8 @@ client.on("guildMemberAdd", (guildMember) => {
     guildMember.roles.add("708265543425065000");
     console.log(`${guildMember.user.tag} 새로운 멤버들어옴`);
   }
+
+
 });
 
 fs.readdir("./commands/", (err, files) => {
@@ -45,6 +48,20 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.on("message", (message) => {
+
+  //금지어 거르기
+  
+  for(let i = 0; i < fuck.length;i++){
+    if (message.toString().indexOf(fuck[i]) != -1){
+      if (message.toString().indexOf(fuck[i]) === fuck[i].length){
+        console.log(`${message.author.username}님이 금지어 사용`)
+        message.delete()
+        return
+      }
+    }
+  }
+
+
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
 
@@ -57,6 +74,6 @@ client.on("message", (message) => {
   let cmd = client.commands.get(command.slice(config.prefix.length));
 
   if (cmd) cmd.run(client, message, args);
-});
+})
 
 client.login(config.token);
