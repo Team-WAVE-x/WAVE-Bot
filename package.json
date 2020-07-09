@@ -4,6 +4,7 @@
   "description": "이 봇은 팀 웨이브에서 개발중인 디스코드 전용 봇입니다.",
   "main": "index.js",
   "dependencies": {
+    "discord": "^0.8.2",
     "discord.js": "^12.2.0",
     "fs": "^0.0.1-security"
   },
