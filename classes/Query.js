@@ -1,5 +1,5 @@
 class Query {
-  constructor (prefix = '>', raw = '') {
+  constructor (prefix = '%', raw = '') {
     this.raw = raw
     this.prefix = prefix
     this.content = raw.split(prefix)[1]

@@ -14,7 +14,7 @@ class eClient extends Client {
     if (this.tt.settingHas) {
       const {
         token = process.env.TOKEN,
-        prefix = (process.env.PREFIX || '>'),
+        prefix = (process.env.PREFIX || '%'),
         ...settings
       } = require(this.tt.settingPath)
 
