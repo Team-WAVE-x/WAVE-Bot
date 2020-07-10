@@ -14,6 +14,14 @@ module.exports = (client, msg) => {
       )
 
     console.log(`${msg.author.username}님이 문의하셨습니다.`)
+    
+     client.users.cache
+    .get(msg.author.id)
+    .send(
+      new MessageEmbed()
+      .setTitle('Team WAVE')
+      .addField('건의가 접수되었습니다.', `팀 운영진들이 빠른 시일내에 확인하여 답변드리겠습니다.`, true)
+    )
     return
   }
   // 금지어 거르기
