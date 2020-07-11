@@ -24,6 +24,7 @@ module.exports = (client, msg) => {
       )
     return
   }
+
   // 금지어 거르기
   if (badwords.find((word) => msg.content.includes(word))) {
     console.log(msg.author.username + '님이 금지어 사용')
@@ -35,5 +36,6 @@ module.exports = (client, msg) => {
 
   const query = new Query(client.settings.prefix, msg.content)
   const target = client.commands.find((c) => c.help.alias.includes(query.cmd) || c.help.name === query.cmd)
+  if (target.help.devOnly && !client.settings.developers.includes(msg.author.id)) return msg.channel.send(new MessageEmbed({ title: ':x: Access Denied!', color: 0xFF6961 }))
   if (target) target.run(client, msg, query.args)
 }

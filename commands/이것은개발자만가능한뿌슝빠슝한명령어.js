@@ -1,15 +1,8 @@
-const Discord = module.require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 exports.run = (client, message, args) => {
-  if (!client.settings.developers.includes(message.author.id)) {
-    message.channel.send(new Discord.MessageEmbed()
-      .setTitle(':x: Access Denied!')
-      .setColor(0xFF6961)
-    )
-    return
-  }
   message.channel.send(
-    new Discord.MessageEmbed()
+    new MessageEmbed()
       .setTitle('어머 개발자님..')
       .addField('뿌슝빠슝합니다..', '멋있어요..', true)
   )
@@ -18,5 +11,6 @@ exports.run = (client, message, args) => {
 module.exports.help = {
   name: '이것은개발자만가능한뿌슝빠슝한명령어',
   alias: ['이것은개발자만가능한뿌슝빠슝한말', 'dlrjtdmsroqkfwkaksrksmdgksQntbdQktbdgksaudfuddj'],
-  authority: 'Developer'
+  authority: 'Developer',
+  devOnly: true
 }

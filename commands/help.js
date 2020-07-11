@@ -1,23 +1,21 @@
-const Discord = module.require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 exports.run = (client, message, args) => {
-  if (!client.settings.developers.includes(message.author.id)) {
-    message.channel.send(new Discord.MessageEmbed()
-      .setTitle(':x: Access Denied!')
-      .setColor(0xFF6961)
-    )
-    return
-  }
-  message.channel.send(
-    new Discord.MessageEmbed()
-      .setTitle('Help')
-      .addField(`**${client.settings.prefix}ping**`, '핑을 알려줍니다.', false)
-      .addField(`**${client.settings.prefix}tendinous**`, '개발자들에게 건의해 보세요.', false)
-  )
+  const embed = new MessageEmbed()
+
+  client.commands.forEach((command) => {
+    const { help = { } } = command
+
+    if (help.devOnly) return
+    embed.addField(client.settings.prefix + help.name, help.desc || '설명이 없습니다', false)
+  })
+
+  message.channel.send(embed)
 }
 
 module.exports.help = {
   name: 'help',
+  desc: '이 메세지를 출력합니다',
   alias: ['도움', '도움말', 'ehdna', 'ehdnaakf'],
   authority: 'Developer'
 }

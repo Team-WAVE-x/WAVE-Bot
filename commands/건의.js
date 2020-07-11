@@ -1,15 +1,8 @@
-const Discord = module.require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 exports.run = (client, message, args) => {
-  if (!client.settings.developers.includes(message.author.id)) {
-    message.channel.send(new Discord.MessageEmbed()
-      .setTitle(':x: Access Denied!')
-      .setColor(0xFF6961)
-    )
-    return
-  }
   message.channel.send(
-    new Discord.MessageEmbed()
+    new MessageEmbed()
       .setTitle('개발자들아 건의 날라옴')
     // .addField(`건의자 : ${message.author.tag}`, `${args}`, true)
   )
@@ -17,6 +10,7 @@ exports.run = (client, message, args) => {
 
 module.exports.help = {
   name: 'tendinous',
+  desc: '개발자들에게 건의해 보세요.',
   alias: ['건의', 'rjsdml'],
   authority: 'Developer'
 }
