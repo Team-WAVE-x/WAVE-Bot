@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   client.commands.forEach((command) => {
     const { help = { } } = command
 
-    if (help.devOnly) return
+    if (help.authority === 'Developer') return
     embed.addField(client.settings.prefix + help.name, help.desc || '설명이 없습니다', false)
   })
 

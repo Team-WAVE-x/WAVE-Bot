@@ -12,6 +12,5 @@ exports.run = (client, message, args) => {
 module.exports.help = {
   name: '팀웨이브 모여라',
   alias: ['집합', 'wlqgkq'],
-  authority: 'Developer',
-  devOnly: true
+  authority: 'Developer'
 }
