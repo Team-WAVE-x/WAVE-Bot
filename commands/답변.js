@@ -20,7 +20,15 @@ exports.run = (client, message, args) => {
         new Discord.MessageEmbed()
         .setTitle("Team WAVE")
         .addField(msg[1], msg[2], true)
+        .setTimestamp()
       )
+
+  message.channel.send(new Discord.MessageEmbed()
+    .setTitle('답변 완료')
+    .addField(`${msg[1]}`, `${msg[2]}`,  false)
+    .addField(`누구에게`, `<@${msg[0]}>`, false)
+    .setTimestamp()
+  )
 
    return
 
