@@ -1,6 +1,6 @@
 const Query = require('../classes/Query')
-const badwords = require('../data/badwords.json')
 const { MessageEmbed } = require('discord.js')
+const { get } = require('superagent')
 
 module.exports = (client, msg) => {
   if (msg.author.bot) return
@@ -26,11 +26,13 @@ module.exports = (client, msg) => {
   }
 
   // 금지어 거르기
-  if (badwords.find((word) => msg.content.includes(word))) {
-    console.log(msg.author.username + '님이 금지어 사용')
-    msg.delete()
-    return
-  }
+  get('localhost:8080/check/' + encodeURIComponent(msg.content), (err, res) => {
+    if (err) console.log(err)
+    else if (res.body.result) {
+      console.log(msg.author.username + '님이 금지어 사용')
+      msg.delete()
+    }
+  })
 
   if (!msg.content.startsWith(client.settings.prefix)) return
 
