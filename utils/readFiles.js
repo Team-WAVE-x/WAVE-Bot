@@ -7,7 +7,6 @@ function readRecursively (dir, filelist = []) {
     if (statSync(dir + '/' + file).isDirectory()) filelist = readRecursively(dir + '/' + file, filelist)
     else filelist.push(dir + '/' + file)
   })
-
   return filelist
 }
 
