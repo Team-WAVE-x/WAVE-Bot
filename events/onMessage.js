@@ -39,6 +39,11 @@ module.exports = (client, msg) => {
   const query = new Query(client.settings.prefix, msg.content)
   const target = client.commands.find((c) => c.help.alias.includes(query.cmd) || c.help.name === query.cmd)
 
+  if (msg.content.match('https?:\/\/discord.gg\/[A-z0-9][A-z0-9][A-z0-9][A-z0-9][A-z0-9][A-z0-9]?[A-z0-9]?[A-z0-9]')) {
+    msg.delete({ timeout: 1000 })
+    .then(m => msg.channel.send('Team WAVE 에서 디스코드 서버 홍보는 금지됩니다.'))
+  }
+
   if (target.help.authority === 'Developer' && !client.settings.developers.includes(msg.author.id)) {
     return msg.channel.send(new MessageEmbed({ title: ':x: Access Denied!', color: 0xFF6961 }))
   }
